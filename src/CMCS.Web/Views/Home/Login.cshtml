@@ -1,0 +1,85 @@
+@{
+    ViewData["Title"] = "CMCS Login";
+    Layout = null; // No layout for login page
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Contract Monthly Claim System</title>
+    <link rel="stylesheet" href="~/css/simple.css" />
+</head>
+<body>
+
+<div class="main-container">
+    <div class="header">
+        <h1>CMCS Login</h1>
+        <p>Contract Monthly Claim System - User Authentication</p>
+    </div>
+
+    <!-- Login Form -->
+    <div class="box">
+        <div class="box-title">User Login</div>
+        
+        <form>
+            <div class="form-row">
+                <span class="label">Email Address:</span>
+                <input type="email" placeholder="your.email@university.ac.za" required />
+            </div>
+            
+            <div class="form-row">
+                <span class="label">Password:</span>
+                <input type="password" placeholder="Enter your password" required />
+            </div>
+            
+            
+            <div class="form-row">
+                <button type="submit" class="btn btn-green">Login</button>
+                <a href="@Url.Action("SignUp", "Home")" class="btn">Need an Account?</a>
+            </div>
+        </form>
+    </div>
+
+    <!-- Test Access Buttons -->
+    <div class="box">
+        <div class="box-title">🧪 TEST ACCESS - Demo Purposes Only</div>
+        <p><strong>For testing and demonstration purposes, use these buttons to access each portal directly:</strong></p>
+        
+        <table>
+            <tr>
+                <th>User Type</th>
+                <th>Portal Access</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><strong>Lecturer</strong></td>
+                <td><a href="@Url.Action("LecturerDashboard", "Home")" class="btn">🎓 Test Lecturer Portal</a></td>
+                <td>Submit claims, upload documents, track status</td>
+            </tr>
+            <tr>
+                <td><strong>Programme Coordinator</strong></td>
+                <td><a href="@Url.Action("ReviewDashboard", "Home")" class="btn btn-green">📋 Test Coordinator Portal</a></td>
+                <td>Review and approve lecturer claims</td>
+            </tr>
+            <tr>
+                <td><strong>Academic Manager</strong></td>
+                <td><a href="@Url.Action("ManagerDashboard", "Home")" class="btn btn-orange">⚙️ Test Manager Portal</a></td>
+                <td>Final approvals and user management</td>
+            </tr>
+            <tr>
+                <td><strong>HR Personnel</strong></td>
+                <td><a href="@Url.Action("ClaimDetails", "Home")" class="btn">📊 Test HR Portal</a></td>
+                <td>Process payments and generate reports</td>
+            </tr>
+        </table>
+        
+        <div class="form-row">
+            <small><em>Note: These test buttons bypass authentication for demonstration purposes only.</em></small>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

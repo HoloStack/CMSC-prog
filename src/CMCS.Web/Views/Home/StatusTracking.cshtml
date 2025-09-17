@@ -1,0 +1,124 @@
+@{
+    ViewData["Title"] = "Claim Status Tracking";
+    Layout = "_SimpleLayout";
+}
+
+<link rel="stylesheet" href="~/css/simple.css" />
+
+<div class="main-container">
+    <div class="header">
+        <h1>Claim Status Tracking Portal</h1>
+        <p>Track All Claims Across the University System</p>
+    </div>
+
+    <!-- Search for Specific Claim -->
+    <div class="box">
+        <div class="box-title">Search Claim Status</div>
+        
+        <div class="form-row">
+            <span class="label">Claim ID:</span>
+            <input type="text" placeholder="Enter Claim ID (e.g., CLAIM-2025-001)" />
+            <button class="btn btn-green">🔍 Search Claim</button>
+        </div>
+        
+        <div class="form-row">
+            <span class="label">Lecturer Name:</span>
+            <input type="text" placeholder="Enter lecturer name" />
+            <button class="btn">Search by Lecturer</button>
+        </div>
+    </div>
+
+    <!-- Current Active Claims -->
+    <div class="box">
+        <div class="box-title">Active Claims Overview</div>
+        
+        <table>
+            <tr>
+                <th>Claim ID</th>
+                <th>Lecturer</th>
+                <th>Department</th>
+                <th>Amount</th>
+                <th>Current Status</th>
+                <th>Days in System</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+                <td>CLAIM-2025-001</td>
+                <td>John Lecturer</td>
+                <td>Information Technology</td>
+                <td><strong>R15,750</strong></td>
+                <td><span class="status-pending">PENDING REVIEW</span></td>
+                <td>3 days</td>
+                <td><a href="@Url.Action("ClaimDetails", "Home")" class="btn">View Details</a></td>
+            </tr>
+            <tr>
+                <td>CLAIM-2025-002</td>
+                <td>Sarah Professor</td>
+                <td>Business Studies</td>
+                <td><strong>R12,160</strong></td>
+                <td><span class="status-pending">COORDINATOR REVIEW</span></td>
+                <td>2 days</td>
+                <td><button class="btn">View Details</button></td>
+            </tr>
+            <tr>
+                <td>CLAIM-2025-005</td>
+                <td>Mike Engineer</td>
+                <td>Engineering</td>
+                <td><strong>R18,400</strong></td>
+                <td><span class="status-approved">APPROVED</span></td>
+                <td>7 days</td>
+                <td><button class="btn">View Details</button></td>
+            </tr>
+            <tr>
+                <td>CLAIM-2025-007</td>
+                <td>Lisa Academic</td>
+                <td>Sciences</td>
+                <td><strong>R20,000</strong></td>
+                <td><span class="status-rejected">REJECTED</span></td>
+                <td>5 days</td>
+                <td><button class="btn btn-red">View Reason</button></td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Status Summary -->
+    <div class="box">
+        <div class="box-title">System Status Summary</div>
+        
+        <div class="stats">
+            <div class="stat-box">
+                <div class="stat-number">23</div>
+                <div>Claims Submitted</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">12</div>
+                <div>Pending Review</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">8</div>
+                <div>Approved</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">3</div>
+                <div>Rejected</div>
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <button class="btn">Export All Status Data</button>
+            <button class="btn btn-orange">Generate Status Report</button>
+        </div>
+    </div>
+
+    <!-- Quick Navigation -->
+    <div class="box">
+        <div class="box-title">Quick Navigation</div>
+        
+        <div class="form-row">
+            <a href="@Url.Action("LecturerDashboard", "Home")" class="btn">👨‍🏫 Lecturer Portal</a>
+            <a href="@Url.Action("ReviewDashboard", "Home")" class="btn">👨‍💼 Coordinator Portal</a>
+            <a href="@Url.Action("ManagerDashboard", "Home")" class="btn">👨‍💻 Manager Portal</a>
+            <a href="@Url.Action("Login", "Home")" class="btn btn-orange">🔐 Login Portal</a>
+        </div>
+    </div>
+</div>

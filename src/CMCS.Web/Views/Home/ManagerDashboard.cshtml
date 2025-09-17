@@ -1,0 +1,248 @@
+@{
+    ViewData["Title"] = "Academic Manager Dashboard";
+    Layout = "_SimpleLayout";
+}
+
+<link rel="stylesheet" href="~/css/simple.css" />
+
+<div class="main-container">
+    <div class="header">
+        <h1>Academic Manager Dashboard</h1>
+        <p>Final Approvals & System Administration</p>
+    </div>
+
+    <!-- Manager Stats -->
+    <div class="stats">
+        <div class="stat-box">
+            <div class="stat-number">8</div>
+            <div>Awaiting Final Approval</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">156</div>
+            <div>Users in System</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">R3.2M</div>
+            <div>Total This Quarter</div>
+        </div>
+    </div>
+
+    <!-- Claims Requiring Final Approval -->
+    <div class="box">
+        <div class="box-title">Claims Requiring Manager Approval</div>
+        
+        <table>
+            <tr>
+                <th>Claim ID</th>
+                <th>Lecturer</th>
+                <th>Department</th>
+                <th>Amount</th>
+                <th>Coordinator Review</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+                <td>CLAIM-2025-001</td>
+                <td>John Lecturer (LEC001)</td>
+                <td>Information Technology</td>
+                <td><strong>R15,750</strong></td>
+                <td><span class="status-approved">APPROVED</span> by Coord. Smith</td>
+                <td><span class="status-pending">REQUIRES MANAGER APPROVAL</span></td>
+                <td>
+                    <button class="btn btn-green">Final Approve</button>
+                    <button class="btn btn-red">Reject</button>
+                    <button class="btn">View Details</button>
+                </td>
+            </tr>
+            <tr>
+                <td>CLAIM-2025-005</td>
+                <td>Sarah Professor (LEC002)</td>
+                <td>Business Studies</td>
+                <td><strong>R22,400</strong></td>
+                <td><span class="status-approved">APPROVED</span> by Coord. Brown</td>
+                <td><span class="status-pending">REQUIRES MANAGER APPROVAL</span></td>
+                <td>
+                    <button class="btn btn-green">Final Approve</button>
+                    <button class="btn btn-red">Reject</button>
+                    <button class="btn">View Details</button>
+                </td>
+            </tr>
+        </table>
+        
+        <div class="form-row">
+            <button class="btn btn-green">Approve All Selected</button>
+            <button class="btn">Export Manager Report</button>
+        </div>
+    </div>
+
+    <!-- User Management -->
+    <div class="box">
+        <div class="box-title">User Management</div>
+        
+        <div class="form-row">
+            <button class="btn btn-orange" onclick="showCreateUserForm()">➕ Create New User</button>
+            <button class="btn">View All Users</button>
+            <button class="btn">Deactivate Users</button>
+            <button class="btn">Reset Passwords</button>
+        </div>
+
+        <!-- Create User Form (Initially Hidden) -->
+        <div id="createUserForm" style="display: none; margin-top: 20px; border: 2px solid #2196F3; padding: 15px; background-color: #F0F8FF;">
+            <h4>Create New User Account</h4>
+            <form>
+                <div class="form-row">
+                    <span class="label">First Name:</span>
+                    <input type="text" placeholder="John" required />
+                    
+                    <span class="label">Last Name:</span>
+                    <input type="text" placeholder="Doe" required />
+                </div>
+                
+                <div class="form-row">
+                    <span class="label">Email Address:</span>
+                    <input type="email" placeholder="john.doe@university.ac.za" required />
+                </div>
+                
+                <div class="form-row">
+                    <span class="label">Department:</span>
+                    <select required>
+                        <option value="">Select Department...</option>
+                        <option value="Information Technology">Information Technology</option>
+                        <option value="Business Studies">Business Studies</option>
+                        <option value="Engineering">Engineering</option>
+                        <option value="Sciences">Sciences</option>
+                        <option value="Arts & Humanities">Arts & Humanities</option>
+                        <option value="Administration">Administration</option>
+                    </select>
+                </div>
+                
+                <div class="form-row">
+                    <span class="label">User Type:</span>
+                    <select required>
+                        <option value="">Select User Type...</option>
+                        <option value="Lecturer">Lecturer</option>
+                        <option value="ProgrammeCoordinator">Programme Coordinator</option>
+                        <option value="AcademicManager">Academic Manager</option>
+                        <option value="HR">HR Personnel</option>
+                    </select>
+                </div>
+                
+                <div class="form-row">
+                    <span class="label">Employee Number:</span>
+                    <input type="text" placeholder="EMP001" />
+                </div>
+                
+                <div class="form-row">
+                    <span class="label">Initial Password:</span>
+                    <input type="password" placeholder="Temporary password" required />
+                    <small>(User will be required to change on first login)</small>
+                </div>
+                
+                <div class="form-row">
+                    <button type="submit" class="btn btn-green">Create User Account</button>
+                    <button type="button" class="btn btn-red" onclick="hideCreateUserForm()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Current System Users -->
+    <div class="box">
+        <div class="box-title">Current System Users</div>
+        
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Department</th>
+                <th>User Type</th>
+                <th>Status</th>
+                <th>Last Login</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+                <td>John Lecturer</td>
+                <td>john.lecturer@university.ac.za</td>
+                <td>Information Technology</td>
+                <td>Lecturer</td>
+                <td><span class="status-approved">ACTIVE</span></td>
+                <td>2025-09-17 09:30</td>
+                <td><button class="btn">Edit</button></td>
+            </tr>
+            <tr>
+                <td>Sarah Coordinator</td>
+                <td>sarah.coord@university.ac.za</td>
+                <td>Business Studies</td>
+                <td>ProgrammeCoordinator</td>
+                <td><span class="status-approved">ACTIVE</span></td>
+                <td>2025-09-16 14:20</td>
+                <td><button class="btn">Edit</button></td>
+            </tr>
+            <tr>
+                <td>Mike Manager</td>
+                <td>mike.manager@university.ac.za</td>
+                <td>Administration</td>
+                <td>AcademicManager</td>
+                <td><span class="status-approved">ACTIVE</span></td>
+                <td>2025-09-17 08:15</td>
+                <td><button class="btn">Edit</button></td>
+            </tr>
+            <tr>
+                <td>Lisa HR</td>
+                <td>lisa.hr@university.ac.za</td>
+                <td>Human Resources</td>
+                <td>HR</td>
+                <td><span class="status-pending">INACTIVE</span></td>
+                <td>2025-09-10 16:45</td>
+                <td><button class="btn btn-orange">Activate</button></td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- System Reports -->
+    <div class="box">
+        <div class="box-title">System Reports & Analytics</div>
+        
+        <div class="form-row">
+            <button class="btn">Monthly Claim Report</button>
+            <button class="btn">User Activity Report</button>
+            <button class="btn btn-orange">Financial Summary</button>
+            <button class="btn">Department Breakdown</button>
+        </div>
+        
+        <div class="form-row">
+            <span class="label">Report Period:</span>
+            <select>
+                <option>Current Month</option>
+                <option>Last 3 Months</option>
+                <option>Current Quarter</option>
+                <option>Current Year</option>
+                <option>Custom Range</option>
+            </select>
+            
+            <button class="btn btn-green">Generate Report</button>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="box">
+        <div class="box-title">Navigation</div>
+        
+        <div class="form-row">
+            <a href="@Url.Action("ReviewDashboard", "Home")" class="btn">View Coordinator Portal</a>
+            <a href="@Url.Action("ClaimDetails", "Home")" class="btn">Track Specific Claim</a>
+            <a href="@Url.Action("Login", "Home")" class="btn btn-orange">Logout</a>
+            <a href="@Url.Action("Login", "Home")" class="btn">Back to Login</a>
+        </div>
+    </div>
+</div>
+
+<script>
+function showCreateUserForm() {
+    document.getElementById('createUserForm').style.display = 'block';
+}
+
+function hideCreateUserForm() {
+    document.getElementById('createUserForm').style.display = 'none';
+}
+</script>

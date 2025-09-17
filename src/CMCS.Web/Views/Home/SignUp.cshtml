@@ -1,0 +1,129 @@
+@{
+    ViewData["Title"] = "CMCS Account Request";
+}
+
+<link rel="stylesheet" href="~/css/simple.css" />
+
+<div class="main-container">
+    <div class="header">
+        <h1>CMCS Account Request</h1>
+        <p>New User Registration</p>
+    </div>
+
+    <!-- Account Request Information -->
+    <div class="box">
+        <div class="box-title">⚠️ Account Creation Policy</div>
+        
+        <p><strong>CMCS accounts are restricted and must be created by university administration.</strong></p>
+        
+        <p>If you need access to the Contract Monthly Claim System, please follow these steps:</p>
+        
+        <ol>
+            <li><strong>Email the University IT Department</strong> at: <a href="mailto:accounts@university.ac.za">accounts@university.ac.za</a></li>
+            <li><strong>Include the following information:</strong>
+                <ul>
+                    <li>Your full name</li>
+                    <li>University staff/employee number</li>
+                    <li>Department name</li>
+                    <li>Position/Role (Lecturer, Coordinator, Manager, HR)</li>
+                    <li>Supervisor/Department Head contact details</li>
+                    <li>Reason for needing CMCS access</li>
+                </ul>
+            </li>
+            <li><strong>Wait for approval</strong> from your Department Head and IT verification</li>
+            <li><strong>Receive your login credentials</strong> via secure university email</li>
+        </ol>
+    </div>
+
+    <!-- Contact Information -->
+    <div class="box">
+        <div class="box-title">Contact Information</div>
+        
+        <table>
+            <tr>
+                <th>Department</th>
+                <th>Contact</th>
+                <th>Purpose</th>
+            </tr>
+            <tr>
+                <td><strong>IT Accounts</strong></td>
+                <td>accounts@university.ac.za</td>
+                <td>New account requests</td>
+            </tr>
+            <tr>
+                <td><strong>IT Support</strong></td>
+                <td>support@university.ac.za</td>
+                <td>Technical issues, password resets</td>
+            </tr>
+            <tr>
+                <td><strong>HR Department</strong></td>
+                <td>hr@university.ac.za</td>
+                <td>Contract lecturer verification</td>
+            </tr>
+            <tr>
+                <td><strong>Academic Administration</strong></td>
+                <td>admin@university.ac.za</td>
+                <td>General system inquiries</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- User Type Information -->
+    <div class="box">
+        <div class="box-title">User Types & Access Levels</div>
+        
+        <p>The CMCS system supports the following user types:</p>
+        
+        <table>
+            <tr>
+                <th>User Type</th>
+                <th>Access Level</th>
+                <th>Primary Functions</th>
+            </tr>
+            <tr>
+                <td><strong>Lecturer</strong></td>
+                <td>Basic User</td>
+                <td>Submit claims, upload documents, track status</td>
+            </tr>
+            <tr>
+                <td><strong>Programme Coordinator</strong></td>
+                <td>Department Admin</td>
+                <td>Review and approve departmental claims</td>
+            </tr>
+            <tr>
+                <td><strong>Academic Manager</strong></td>
+                <td>Senior Admin</td>
+                <td>Final approvals, system oversight, user management</td>
+            </tr>
+            <tr>
+                <td><strong>HR Personnel</strong></td>
+                <td>Support Admin</td>
+                <td>Process payments, generate reports, system maintenance</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Processing Time -->
+    <div class="box">
+        <div class="box-title">Expected Processing Times</div>
+        
+        <ul>
+            <li><strong>Lecturer Accounts:</strong> 2-3 business days (requires contract verification)</li>
+            <li><strong>Coordinator Accounts:</strong> 3-5 business days (requires management approval)</li>
+            <li><strong>Manager Accounts:</strong> 5-7 business days (requires senior management approval)</li>
+            <li><strong>HR Accounts:</strong> 3-5 business days (requires HR department verification)</li>
+        </ul>
+        
+        <p><em>Processing times may vary during busy periods or academic breaks.</em></p>
+    </div>
+
+    <!-- Navigation -->
+    <div class="box">
+        <div class="box-title">Navigation</div>
+        
+        <div class="form-row">
+            <a href="@Url.Action("Login", "Home")" class="btn">Back to Login</a>
+            <button class="btn btn-orange" onclick="window.location.href='mailto:accounts@university.ac.za?subject=CMCS Account Request&body=Please create a CMCS account for me.%0A%0AFull Name: %0AEmployee Number: %0ADepartment: %0APosition: %0ASupervisor Contact: %0AReason for Access: %0A%0AThank you.'">📧 Send Account Request Email</button>
+        </div>
+    </div>
+</div>
