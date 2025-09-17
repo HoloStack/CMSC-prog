@@ -1,6 +1,322 @@
-﻿@{
-    ViewData["Title"] = "Privacy Policy";
+@{
+    ViewData["Title"] = "Claims Review";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<div class="container-fluid fade-in-up">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h1 class="page-title">Claims Review Dashboard</h1>
+            <p class="lead text-muted">Welcome, Programme Coordinator! Review and approve pending claims below.</p>
+        </div>
+    </div>
+
+    <!-- Review Metrics -->
+    <div class="row mb-5">
+        <div class="col-md-3">
+            <div class="metric-card pending">
+                <div class="metric-number">12</div>
+                <h5>Pending Claims</h5>
+                <p class="text-muted mb-0">Awaiting review</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="metric-card approved">
+                <div class="metric-number">45</div>
+                <h5>Approved Today</h5>
+                <p class="text-muted mb-0">This month</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="metric-card total">
+                <div class="metric-number">R2.1M</div>
+                <h5>Total Approved</h5>
+                <p class="text-muted mb-0">This month</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="metric-card">
+                <div class="metric-number">3.2</div>
+                <h5>Avg Review Time</h5>
+                <p class="text-muted mb-0">Days</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filter and Search -->
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="input-group">
+                <span class="input-group-text"><i class="fas fa-search"></i></span>
+                <input type="text" class="form-control" placeholder="Search by lecturer name, ID, or claim number...">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <select class="form-control">
+                <option>All Departments</option>
+                <option>Information Technology</option>
+                <option>Business Studies</option>
+                <option>Engineering</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <select class="form-control">
+                <option>All Statuses</option>
+                <option>Pending</option>
+                <option>Under Review</option>
+                <option>Approved</option>
+                <option>Rejected</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Claims List -->
+    <div class="row">
+        <div class="col-12">
+            <div class="dashboard-card">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h4><i class="fas fa-clipboard-list text-warning me-2"></i>Pending Claims Review</h4>
+                    <div>
+                        <button class="btn btn-success me-2">
+                            <i class="fas fa-check-double me-1"></i> Bulk Approve
+                        </button>
+                        <button class="btn btn-outline-primary">
+                            <i class="fas fa-download me-1"></i> Export
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Claim Review Items -->
+                <div class="claim-review-item mb-4 p-4 border rounded-3">
+                    <div class="row align-items-center">
+                        <div class="col-md-2">
+                            <div class="d-flex align-items-center">
+                                <input type="checkbox" class="form-check-input me-3" id="claim1">
+                                <div>
+                                    <h6 class="mb-0">Claim #2025-001</h6>
+                                    <small class="text-muted">Sept 2025</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="d-flex align-items-center">
+                                <div class="avatar-circle me-3">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0">John Lecturer</h6>
+                                    <small class="text-muted">LEC001 • IT Department</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <div class="fw-bold text-primary">45 hours</div>
+                            <small class="text-muted">@ R350/hr</small>
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <div class="fw-bold text-success fs-5">R15,750</div>
+                            <div class="status-badge status-pending">Pending</div>
+                        </div>
+                        <div class="col-md-3 text-end">
+                            <div class="btn-group" role="group">
+                                <button class="btn btn-sm btn-outline-info" data-bs-toggle="modal" data-bs-target="#claimModal">
+                                    <i class="fas fa-eye"></i> View
+                                </button>
+                                <button class="btn btn-sm btn-success">
+                                    <i class="fas fa-check"></i> Approve
+                                </button>
+                                <button class="btn btn-sm btn-danger">
+                                    <i class="fas fa-times"></i> Reject
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="claim-review-item mb-4 p-4 border rounded-3">
+                    <div class="row align-items-center">
+                        <div class="col-md-2">
+                            <div class="d-flex align-items-center">
+                                <input type="checkbox" class="form-check-input me-3" id="claim2">
+                                <div>
+                                    <h6 class="mb-0">Claim #2025-002</h6>
+                                    <small class="text-muted">Sept 2025</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="d-flex align-items-center">
+                                <div class="avatar-circle me-3">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0">Sarah Professor</h6>
+                                    <small class="text-muted">LEC002 • Business Studies</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <div class="fw-bold text-primary">38 hours</div>
+                            <small class="text-muted">@ R320/hr</small>
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <div class="fw-bold text-success fs-5">R12,160</div>
+                            <div class="status-badge status-pending">Pending</div>
+                        </div>
+                        <div class="col-md-3 text-end">
+                            <div class="btn-group" role="group">
+                                <button class="btn btn-sm btn-outline-info" data-bs-toggle="modal" data-bs-target="#claimModal">
+                                    <i class="fas fa-eye"></i> View
+                                </button>
+                                <button class="btn btn-sm btn-success">
+                                    <i class="fas fa-check"></i> Approve
+                                </button>
+                                <button class="btn btn-sm btn-danger">
+                                    <i class="fas fa-times"></i> Reject
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="claim-review-item mb-4 p-4 border rounded-3">
+                    <div class="row align-items-center">
+                        <div class="col-md-2">
+                            <div class="d-flex align-items-center">
+                                <input type="checkbox" class="form-check-input me-3" id="claim3">
+                                <div>
+                                    <h6 class="mb-0">Claim #2025-003</h6>
+                                    <small class="text-muted">Sept 2025</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="d-flex align-items-center">
+                                <div class="avatar-circle me-3">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0">Mike Engineer</h6>
+                                    <small class="text-muted">LEC003 • Engineering</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <div class="fw-bold text-primary">42 hours</div>
+                            <small class="text-muted">@ R380/hr</small>
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <div class="fw-bold text-success fs-5">R15,960</div>
+                            <div class="status-badge status-pending">Pending</div>
+                        </div>
+                        <div class="col-md-3 text-end">
+                            <div class="btn-group" role="group">
+                                <button class="btn btn-sm btn-outline-info" data-bs-toggle="modal" data-bs-target="#claimModal">
+                                    <i class="fas fa-eye"></i> View
+                                </button>
+                                <button class="btn btn-sm btn-success">
+                                    <i class="fas fa-check"></i> Approve
+                                </button>
+                                <button class="btn btn-sm btn-danger">
+                                    <i class="fas fa-times"></i> Reject
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <nav>
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <span class="page-link">Previous</span>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Claim Detail Modal -->
+<div class="modal fade" id="claimModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-gradient-primary text-white">
+                <h5 class="modal-title"><i class="fas fa-file-alt me-2"></i>Claim Details - #2025-001</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6><i class="fas fa-user me-1"></i> Lecturer Information</h6>
+                        <table class="table table-sm">
+                            <tr><td><strong>Name:</strong></td><td>John Lecturer</td></tr>
+                            <tr><td><strong>Employee ID:</strong></td><td>LEC001</td></tr>
+                            <tr><td><strong>Department:</strong></td><td>Information Technology</td></tr>
+                            <tr><td><strong>Contact:</strong></td><td>john.lecturer@university.edu</td></tr>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <h6><i class="fas fa-calculator me-1"></i> Claim Summary</h6>
+                        <table class="table table-sm">
+                            <tr><td><strong>Month Worked:</strong></td><td>September 2025</td></tr>
+                            <tr><td><strong>Hours Worked:</strong></td><td>45 hours</td></tr>
+                            <tr><td><strong>Hourly Rate:</strong></td><td>R350/hour</td></tr>
+                            <tr><td><strong>Total Amount:</strong></td><td class="text-success fw-bold">R15,750</td></tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <hr>
+                
+                <div class="mb-3">
+                    <h6><i class="fas fa-sticky-note me-1"></i> Additional Notes</h6>
+                    <p class="text-muted">"Taught advanced programming concepts including data structures, algorithms, and software engineering principles. Conducted lab sessions and provided individual student consultations."</p>
+                </div>
+                
+                <div class="mb-3">
+                    <h6><i class="fas fa-paperclip me-1"></i> Supporting Documents</h6>
+                    <div class="list-group">
+                        <div class="list-group-item d-flex align-items-center">
+                            <i class="fas fa-file-pdf text-danger me-3"></i>
+                            <span>timesheet_september_2025.pdf</span>
+                            <button class="btn btn-sm btn-outline-primary ms-auto">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                        </div>
+                        <div class="list-group-item d-flex align-items-center">
+                            <i class="fas fa-file-excel text-success me-3"></i>
+                            <span>lecture_schedule_sept.xlsx</span>
+                            <button class="btn btn-sm btn-outline-primary ms-auto">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <h6><i class="fas fa-comments me-1"></i> Review Comments</h6>
+                    <textarea class="form-control" rows="3" placeholder="Add your review comments here..."></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    <i class="fas fa-times me-1"></i> Close
+                </button>
+                <button type="button" class="btn btn-danger">
+                    <i class="fas fa-times-circle me-1"></i> Reject Claim
+                </button>
+                <button type="button" class="btn btn-success">
+                    <i class="fas fa-check-circle me-1"></i> Approve Claim
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
