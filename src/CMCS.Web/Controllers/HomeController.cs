@@ -23,6 +23,30 @@ public class HomeController : Controller
         return View();
     }
 
+    // Lecturer Dashboard
+    public IActionResult LecturerDashboard()
+    {
+        return View();
+    }
+
+    // Coordinator Review Dashboard 
+    public IActionResult ReviewDashboard()
+    {
+        return View();
+    }
+
+    // Status Tracking
+    public IActionResult StatusTracking()
+    {
+        return View();
+    }
+
+    // Claim Details
+    public IActionResult ClaimDetails()
+    {
+        return View();
+    }
+
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
